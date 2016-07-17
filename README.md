@@ -34,6 +34,7 @@ gulp zip     -x [项目文件夹]    //打包模板文件
 ```
 
 ## 文件目录体系
+```
  当前目录/
 │
 ├── dist/
@@ -81,6 +82,7 @@ gulp zip     -x [项目文件夹]    //打包模板文件
 │   │   └── index.html
 │   │   └── test.html
 > [test] 为 项目名称
+```
 
 ## License
 The MIT License(http://opensource.org/licenses/MIT)
