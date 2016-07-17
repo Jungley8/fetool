@@ -5,7 +5,7 @@
 var fs = require('fs'),
   readline = require('readline'),
   gulp = require('gulp'),
-  copy = require('gulp-copy'),
+  copy = require('gulp-copy');
 
 var rl = readline.createInterface({
   input: process.stdin,

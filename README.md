@@ -12,6 +12,34 @@ fetool将前端开发人员日常工作整合起来，并提供浏览器多端�
 * 页面实时自动更新
 * 支持多项目开发
 
+## 雪碧图制作方法
+
+1. png原图放在 `[项目文件夹]/sprite/images/`
+2. gulp sprite  -x [项目文件夹]
+3. 在less文件中引用sprite.less `@import url(../sprite/sprite.less)`
+4. 定义图片样式
+```
+.icon-email {
+  .sprite(@icon-email);
+}
+/*
+Example usage in HTML:
+
+`display: block` sprite:
+<div class="icon-home"></div>
+
+To change `display` (e.g. `display: inline-block;`), we suggest using a common CSS class:
+
+// CSS
+.icon {
+  display: inline-block;
+}
+
+// HTML
+<i class="icon icon-home"></i>
+*/
+```
+
 ## 安装
 ```
 git clone https://github.com/Jungley8/fetool.git
@@ -37,14 +65,14 @@ gulp zip     -x [项目文件夹]    //打包模板文件
 ```
  当前目录/
 │
-├── dist/
+├── dist/ (下列文件只做参考，不是必须)
 │   ├── css/
 │   │   └── jquery.fancybox.css
 │   ├── js/
 │   │   └── jquery-1.8.3.min.js
 │   │   └── jquery.fancybox.pack.js
 │
-├── src/
+├── src/（下列文件只做参考，不是必须）
 │   ├── css/
 │   │   └── jquery.fancybox.css
 │   ├── js/
@@ -56,7 +84,7 @@ gulp zip     -x [项目文件夹]    //打包模板文件
 │   │   └── footer.html
 │   └── index.html
 │   │
-├── [test]/
+├── [test]/（部分文件是创建项目时从上面目录拷贝而来）
 │   ├── dist/
 │   │   ├── css/
 │   │   │   └── jquery.fancybox.css
