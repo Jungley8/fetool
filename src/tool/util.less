@@ -1,0 +1,149 @@
+
+// clearfix via http://h5bp.com/q
+.clearfix() {
+    &:before,
+    &:after {
+        display: table;
+        content: "";
+    }
+    &:after {
+        clear: both;
+    }
+}
+.clearfix() when (@support-ie-version < 8) {
+    *zoom: 1;
+}
+
+// size settings
+.size(@size) {
+    width: @size;
+    height: @size;
+}
+.size(@wdith, @height) {
+    width: @wdith;
+    height: @height;
+}
+
+//
+// .no-bullet
+// .no-bullets
+//
+// "Unstyle" lists, `.no-bullet()` for `<li>`s and `.no-bullets()` for `<ul>` & `<ol>`
+// [deprecated]
+
+.no-bullet() {
+    list-style-image: none;
+    list-style-type: none;
+    margin-left: 0;
+}
+
+.no-bullets() {
+    list-style: none;
+    li {
+        .no-bullet();
+    }
+}
+
+//
+// Typography
+// -----------------------------------------------------------------------------
+
+//
+// .ellipsis
+//
+
+
+.ellipsis() {
+    text-overflow: ellipsis;
+    -o-text-overflow: ellipsis;
+    white-space: nowrap;
+}
+
+
+
+//
+// force-wrap
+//
+// 阻止长字符串（例如url或无意义连续英文字符）打破布局
+
+.force-wrap() {
+    white-space: pre;           // CSS 2.0
+    white-space: pre-wrap;      // CSS 2.1
+    white-space: pre-line;      // CSS 3.0
+    white-space: -pre-wrap;     // Opera 4-6
+    white-space: -o-pre-wrap;   // Opera 7
+    white-space: -moz-pre-wrap; // Mozilla
+    white-space: -hp-pre-wrap;  // HP Printers
+    word-wrap: break-word;      // IE 5+
+}
+
+//
+// .hide-text
+//
+// 隐藏文字
+// http://jsfiddle.net/necolas/drHaR/2/
+// https://github.com/twitter/bootstrap/issues/2362
+// https://github.com/h5bp/html5-boilerplate/commit/aa0396eae757c9e03dda4e463fb0d4db5a5f82d7#commitcomment-1052728
+// http://www.zeldman.com/2012/03/01/replacing-the-9999px-hack-new-image-replacement/
+.hide-text() when not (@support-ie-version < 8) {
+    white-space: nowrap;
+    text-indent: 100%;
+    overflow: hidden;
+}
+.hide-text() when (@support-ie-version < 8) {
+    .ie-hide-text();
+}
+// ie6, ie7
+.ie-hide-text() {
+    text-indent: -9999px;
+    overflow: hidden;
+    text-align: left;
+}
+
+//
+// .hover-link
+//
+// 实现链接默认无下划线，hover后有下划线的样式
+
+.hover-link() {
+    text-decoration: none;
+    &:hover {
+        text-decoration: underline;
+    }
+}
+
+//
+// .unstyled-link
+//
+// 将链接变成默认的文字样式
+
+.unstyled-link() {
+    color: inherit;
+    text-decoration: inherit;
+    cursor: inherit;
+    &:active, &:focus {
+        outline: none;
+    }
+}
+
+//
+// .centered-line(@height, @is-input)
+//
+// 单行文本的垂直居中
+// .centered-line(30px)
+// .centered-line(30px, true)
+
+.centered-line(@height) {
+    .centered-line(@height, false);
+}
+.centered-line(@height, @is-input) when not (@is-input) {
+    height: @height;
+    line-height: @height;
+}
+.centered-line(@height, true) when not (@support-ie-version < 9) {
+    height: @height;
+}
+.centered-line(@height, true) when (@support-ie-version < 9) {
+    height: @height;
+    line-height: ~"@{height}\0"; // IE6-8
+}
