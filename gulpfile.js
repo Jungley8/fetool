@@ -28,7 +28,7 @@ var name = '',//项目名称
   build = '',//整理后文件
   pkgname = '',//项目完整名称
   pkg = require('./package.json'),
-  url = 'http://www.lonwin.net';
+  url = ' ';//公司网站地址
 
 
 function handleError(e) {
@@ -69,6 +69,7 @@ gulp.task('init', function() {
     html: [name + '/src/*.html'],// html 文件路径
     htmlSrc: [name + '/src/*.html', name + '/src/include/*.html'], // html 文件路径（包含公共文件）
     sprite: [name + '/sprite/images/*.png'],// 雪碧图原图路径
+    sprite2x: [name + '/sprite/images/*@2x.png'],// 2倍图雪碧图原图路径
     images: [name + '/src/images/**/*.?(png|jpg|gif)'],//原图路径
   };
   option = {
@@ -250,11 +251,16 @@ gulp.task('zip', ['init'], function() {
     .pipe(gulp.dest('./'));
 });
 
+// 制作雪碧图
 gulp.task('sprite', ['init'], function() {
   // Generate our spritesheet
   var spriteData = gulp.src(paths.sprite).pipe(spritesmith({
     imgName: 'images/sprite.png',
-    cssName: "sprite/sprite.less"
+    cssName: "sprite/sprite.less",
+    // retinaImgName: 'images/sprite@2x.png',
+    // retinaSrcFilter: paths.sprite2x,
+    // padding: 20 // Exaggerated for visibility, normal usage is 1 or 2
+    // algorithm: 'alt-diagonal' //可选
   }));
 
   // Pipe image stream through image optimizer and onto disk

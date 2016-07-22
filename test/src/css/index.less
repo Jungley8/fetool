@@ -1,0 +1,76 @@
+@import "../tool/fetool.less";
+.normalize();
+@import url(../sprite/sprite.less);
+.tac{
+  text-align: center;
+}
+
+
+.icon-home {
+  .sprite(@home);
+}
+.icon-list {
+  .sprite(@list);
+}
+.icon-price {
+  .sprite(@price);
+}
+.icon-trend {
+  .sprite(@trend);
+}
+.icon-notice {
+  .sprite(@notice);
+}
+.icon-email {
+  .sprite(@email);
+}
+.icon-setting {
+  .sprite(@setting);
+}
+.icon{
+  display: block;
+  margin: 0 auto;
+}
+body{
+  height: 100%;
+}
+
+nav{
+  background: #000;
+  ul{
+    .clearfix();
+  }
+  li{
+    float: left;
+    width: 100/7%;
+    padding: 10px 0;
+    height: 50px;
+    a{
+      position: relative;
+      text-align: center;
+      display: block;
+      color: #FFF;
+      .hover-link();
+      height: 100%;
+    }
+  }
+  .txt{
+    display: block;
+    line-height: 20px;
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+  }
+}
+
+.content{
+  padding: 50px 0;
+}
+
+.bottom{
+  position: fixed;
+  bottom: 10px;
+  width: 100%;
+  left: 0;
+}
