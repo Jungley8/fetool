@@ -41,6 +41,7 @@ To change `display` (e.g. `display: inline-block;`), we suggest using a common C
 ```
 
 ## 安装
+`tips`:建议安装nodejs4以后的版本，npm使用淘宝源。
 ```
 git clone https://github.com/Jungley8/fetool.git
 npm install -g gulp
@@ -59,6 +60,7 @@ gulp sprite  -x [项目文件夹]    //制作雪碧图
 gulp build   -x [项目文件夹]    //整理模板文件
 gulp rebuild -x [项目文件夹]    //重新生成所有页面
 gulp zip     -x [项目文件夹]    //打包模板文件
+gulp -x test                    //查看演示项目
 ```
 
 ## 文件目录体系
